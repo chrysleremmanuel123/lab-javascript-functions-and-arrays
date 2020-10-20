@@ -124,27 +124,11 @@ const wordsUnique = [
   'egg',
   'flour'
 ];
-function uniqueArray(wordsUnique) {
-  var uniq = [];
-  k = 0;
-  var flag = 0;
-  if (wordsUnique.length == 0) return null;
-  else {
-    for (i = 0; i < wordsUnique.length; i++) {
-      for (j = i + 1; j < wordsUnique.length; j++) {
-        if (wordsUnique[i] == wordsUnique[j]) {
-          wordsUnique[j] = "null";
-        }
-      }
-    }
-    for (i = 0; i < wordsUnique.length; i++) {
-      if (wordsUnique[i] == "null") continue;
-      else {
-        uniq[k++] = wordsUnique[i];
-      }
-    }
-    return uniq;
-  }
+function uniqueArray(wordsUnique){
+  let newArray = wordsUnique.filter( (string,index) => {
+    return wordsUnique.indexOf(string) === index;
+  } )
+  return newArray;
 }
 // Progression #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -200,3 +184,7 @@ const matrix = [
   [24, 55, 58, 05, 66, 73, 99, 26, 97, 17],
   [21, 36, 23, 09, 75, 00, 76, 44, 20, 45]
 ];
+
+function maximumProduct(matrix) {
+  return Math.max.apply(matrix[0] * matrix[1] * matrix[2] * matrix[3] * matrix[4] * matrix[5] * matrix[6] * matrix[7] * matrix[8] * matrix[9])
+}
